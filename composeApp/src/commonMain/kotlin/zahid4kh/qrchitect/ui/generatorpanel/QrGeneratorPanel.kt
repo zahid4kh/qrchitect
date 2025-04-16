@@ -63,57 +63,13 @@ fun QrGeneratorPanel(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            OutlinedCard(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Column(modifier = Modifier
-                    .padding(16.dp)
-                    .animateContentSize()
-                ) {
-                    Text(
-                        text = "QR Code Type",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clip(MaterialTheme.shapes.medium)
-                            .clickable { showTypeSelector = !showTypeSelector }
-                            .padding(8.dp)
-                    ) {
-                        Text(
-                            text = selectedType.getDisplayName(),
-                            style = MaterialTheme.typography.bodyLarge
-                        )
-                        Spacer(modifier = Modifier.weight(1f))
-                        Icon(
-                            FeatherIcons.ArrowRight,
-                            contentDescription = "Select",
-                            modifier = Modifier
-                                .size(20.dp)
-                                .rotate(if(showTypeSelector) 90f else 0f)
-                        )
-                    }
-
-                    if (showTypeSelector) {
-                        Spacer(modifier = Modifier.height(8.dp))
-                        QrCodeTypeSelector(
-                            selectedType = selectedType,
-                            onTypeSelected = {
-                                onTypeChanged(it)
-                                showTypeSelector = false
-                                onContentChanged(it.getPlaceholderContent())
-                            }
-                        )
-                    }
-                }
-            }
+            QrCodeTypeSelector(
+                onShowSelector = {showTypeSelector = !showTypeSelector},
+                onSelectorShown = { showTypeSelector == it },
+                selectedType = selectedType,
+                onTypeChanged = onTypeChanged,
+                onContentChanged = onContentChanged
+            )
 
             Spacer(modifier = Modifier.height(16.dp))
 
