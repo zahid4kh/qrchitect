@@ -100,113 +100,25 @@ fun QrGeneratorPanel(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            OutlinedCard(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = "Options",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.Bold
-                    )
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Text(
-                        text = "Error Correction Level",
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.Medium
-                    )
-
-                    Spacer(modifier = Modifier.height(4.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        ErrorCorrectionLevel.entries.forEach { level ->
-                            FilterChip(
-                                selected = errorCorrectionLevel == level,
-                                onClick = { onErrorCorrectionLevelChanged(level) },
-                                label = { Text(level.name) },
-                                modifier = Modifier.weight(1f)
-                            )
-                        }
-                    }
-
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Text(
-                        text = "Colors",
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.Medium
-                    )
-
-                    Spacer(modifier = Modifier.height(4.dp))
-
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = "Foreground:",
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-
-                        Spacer(modifier = Modifier.width(8.dp))
-
-                        Box(
-                            modifier = Modifier
-                                .size(32.dp)
-                                .clip(CircleShape)
-                                .background(foregroundColor)
-                                .border(1.dp, MaterialTheme.colorScheme.outline, CircleShape)
-                                .clickable {
-                                    editingForeground = true
-                                    showColorPicker = true
-                                }
-                        )
-
-                        Spacer(modifier = Modifier.width(16.dp))
-
-                        Text(
-                            text = "Background:",
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-
-                        Spacer(modifier = Modifier.width(8.dp))
-
-                        Box(
-                            modifier = Modifier
-                                .size(32.dp)
-                                .clip(CircleShape)
-                                .background(backgroundColor)
-                                .border(1.dp, MaterialTheme.colorScheme.outline, CircleShape)
-                                .clickable {
-                                    editingForeground = false
-                                    showColorPicker = true
-                                }
-                        )
-                    }
-
-                    if (showColorPicker) {
-                        Spacer(modifier = Modifier.height(8.dp))
-                        MaterialColorSelector(
-                            initialColor = if (editingForeground) foregroundColor else backgroundColor,
-                            onColorSelected = {
-                                if (editingForeground) {
-                                    onForegroundColorChanged(it)
-                                } else {
-                                    onBackgroundColorChanged(it)
-                                }
-                                showColorPicker = false
-                            },
-                            onDismiss = { showColorPicker = false }
-                        )
-                    }
-                }
-            }
+            OptionsSelector(
+                errorCorrectionLevel = errorCorrectionLevel,
+                onErrorCorrectionLevelChanged = { onErrorCorrectionLevelChanged(it) },
+                foregroundColor = foregroundColor,
+                onForegroundClicked = {
+                    editingForeground = true
+                    showColorPicker = true
+                },
+                onBackgroundClicked = {
+                    editingForeground = false
+                    showColorPicker = true
+                },
+                onShowColorPicker = {showColorPicker},
+                backgroundColor = backgroundColor,
+                onBackgroundColorChanged = {onBackgroundColorChanged(it)},
+                onForegroundColorChanged = { onForegroundColorChanged(it) },
+                isEditingForeground = {editingForeground},
+                collapseColorPicker = {showColorPicker = false},
+            )
 
             Spacer(modifier = Modifier.height(24.dp))
 
