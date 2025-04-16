@@ -12,6 +12,8 @@ import compose.icons.feathericons.Star
 import org.koin.compose.koinInject
 import zahid4kh.qrchitect.ui.generatorpanel.QrGeneratorPanel
 import zahid4kh.qrchitect.ui.historypanel.QrHistoryPanel
+import zahid4kh.qrchitect.ui.previewpanel.customization.QrCustomizationDialog
+import zahid4kh.qrchitect.ui.previewpanel.QrPreviewPanel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

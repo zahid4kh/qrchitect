@@ -1,4 +1,4 @@
-package zahid4kh.qrchitect.ui
+package zahid4kh.qrchitect.ui.previewpanel
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.asComposeImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -18,7 +17,6 @@ import compose.icons.FeatherIcons
 import compose.icons.feathericons.Edit2
 import compose.icons.feathericons.Image
 import compose.icons.feathericons.Save
-import org.jetbrains.skia.Image
 
 @Composable
 fun QrPreviewPanel(
