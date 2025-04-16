@@ -1,5 +1,6 @@
 package zahid4kh.qrchitect.ui
 
+import androidx.compose.animation.animateContentSize
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.ArrowRight
 import zahid4kh.qrchitect.domain.QrCodeType
@@ -16,10 +17,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import zahid4kh.qrchitect.domain.ErrorCorrectionLevel
+import zahid4kh.qrchitect.ui.components.MaterialColorSelector
+import zahid4kh.qrchitect.ui.components.QrCodeTypeSelector
 
 @Composable
 fun QrGeneratorPanel(
@@ -65,7 +69,10 @@ fun QrGeneratorPanel(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp)
             ) {
-                Column(modifier = Modifier.padding(16.dp)) {
+                Column(modifier = Modifier
+                    .padding(16.dp)
+                    .animateContentSize()
+                ) {
                     Text(
                         text = "QR Code Type",
                         style = MaterialTheme.typography.titleMedium,
@@ -78,8 +85,9 @@ fun QrGeneratorPanel(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { showTypeSelector = true }
-                            .padding(vertical = 8.dp)
+                            .clip(MaterialTheme.shapes.medium)
+                            .clickable { showTypeSelector = !showTypeSelector }
+                            .padding(8.dp)
                     ) {
                         Text(
                             text = selectedType.getDisplayName(),
@@ -89,7 +97,9 @@ fun QrGeneratorPanel(
                         Icon(
                             FeatherIcons.ArrowRight,
                             contentDescription = "Select",
-                            modifier = Modifier.size(20.dp)
+                            modifier = Modifier
+                                .size(20.dp)
+                                .rotate(if(showTypeSelector) 90f else 0f)
                         )
                     }
 
@@ -128,7 +138,8 @@ fun QrGeneratorPanel(
                         modifier = Modifier.fillMaxWidth(),
                         label = { Text("Enter ${selectedType.getDisplayName()} content") },
                         minLines = 4,
-                        maxLines = 8
+                        maxLines = 8,
+                        shape = MaterialTheme.shapes.medium
                     )
                 }
             }
@@ -257,106 +268,6 @@ fun QrGeneratorPanel(
                     text = "Generate QR Code",
                     style = MaterialTheme.typography.titleMedium
                 )
-            }
-        }
-    }
-}
-
-@Composable
-fun QrCodeTypeSelector(
-    selectedType: QrCodeType,
-    onTypeSelected: (QrCodeType) -> Unit
-) {
-    Column {
-        QrCodeType.entries.forEach { type ->
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onTypeSelected(type) }
-                    .padding(vertical = 8.dp, horizontal = 4.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                RadioButton(
-                    selected = type == selectedType,
-                    onClick = { onTypeSelected(type) }
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(text = type.getDisplayName())
-            }
-        }
-    }
-}
-
-@Composable
-fun MaterialColorSelector(
-    initialColor: Color,
-    onColorSelected: (Color) -> Unit,
-    onDismiss: () -> Unit
-) {
-    val materialColors = listOf(
-        Color(0xFF6200EE), // Purple
-        Color(0xFF3700B3), // Dark Purple
-        Color(0xFF03DAC6), // Teal
-        Color(0xFF018786), // Dark Teal
-        Color(0xFFE53935), // Red
-        Color(0xFFF44336), // Light Red
-        Color(0xFF43A047), // Green
-        Color(0xFF388E3C), // Dark Green
-        Color(0xFF1E88E5), // Blue
-        Color(0xFF1976D2), // Dark Blue
-        Color(0xFFFDD835), // Yellow
-        Color(0xFFFBC02D), // Dark Yellow
-        Color(0xFFFF6D00), // Orange
-        Color(0xFFF57C00), // Dark Orange
-        Color(0xFF3E2723), // Brown
-        Color(0xFF000000), // Black
-        Color(0xFF757575), // Gray
-        Color(0xFFFFFFFF), // White
-    )
-
-    Column {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "Select Color",
-                style = MaterialTheme.typography.titleSmall
-            )
-            TextButton(onClick = onDismiss) {
-                Text("Cancel")
-            }
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Column(
-            verticalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            for (i in materialColors.indices step 3) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    for (j in 0..2) {
-                        val colorIndex = i + j
-                        if (colorIndex < materialColors.size) {
-                            Box(
-                                modifier = Modifier
-                                    .size(60.dp)
-                                    .clip(RoundedCornerShape(8.dp))
-                                    .background(materialColors[colorIndex])
-                                    .border(
-                                        width = if (materialColors[colorIndex] == initialColor) 3.dp else 1.dp,
-                                        color = if (materialColors[colorIndex] == initialColor)
-                                            MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline,
-                                        shape = RoundedCornerShape(8.dp)
-                                    )
-                                    .clickable { onColorSelected(materialColors[colorIndex]) }
-                            )
-                        } else {
-                            Spacer(modifier = Modifier.size(60.dp))
-                        }
-                    }
-                }
             }
         }
     }
