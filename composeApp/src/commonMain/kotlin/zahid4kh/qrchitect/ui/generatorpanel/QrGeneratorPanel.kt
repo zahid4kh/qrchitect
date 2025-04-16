@@ -1,4 +1,4 @@
-package zahid4kh.qrchitect.ui
+package zahid4kh.qrchitect.ui.generatorpanel
 
 import androidx.compose.animation.animateContentSize
 import compose.icons.FeatherIcons
@@ -22,8 +22,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import zahid4kh.qrchitect.domain.ErrorCorrectionLevel
-import zahid4kh.qrchitect.ui.components.MaterialColorSelector
-import zahid4kh.qrchitect.ui.components.QrCodeTypeSelector
 
 @Composable
 fun QrGeneratorPanel(

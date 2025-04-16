@@ -1,4 +1,4 @@
-package zahid4kh.qrchitect.ui.components
+package zahid4kh.qrchitect.ui.generatorpanel
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
