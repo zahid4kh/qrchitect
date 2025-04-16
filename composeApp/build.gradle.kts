@@ -30,6 +30,9 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.room.runtime)
             implementation(libs.composeIcons.featherIcons)
+
+            implementation("com.google.zxing:core:3.5.2")
+            implementation("com.google.zxing:javase:3.5.2")
         }
 
         commonTest.dependencies {
