@@ -14,6 +14,7 @@ import zahid4kh.qrchitect.ui.generatorpanel.QrGeneratorPanel
 import zahid4kh.qrchitect.ui.historypanel.QrHistoryPanel
 import zahid4kh.qrchitect.ui.previewpanel.customization.QrCustomizationDialog
 import zahid4kh.qrchitect.ui.previewpanel.QrPreviewPanel
+import zahid4kh.qrchitect.ui.templatepanel.QrTemplatePanel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -81,9 +82,9 @@ fun MainScreen(
                         )
                         2 -> QrTemplatePanel(
                             templates = state.templates,
-                            onTemplateSelected = {  },
-                            onTemplateDeleted = {  },
-                            onCreateNewTemplate = {  }
+                            onTemplateSelected = { },
+                            onTemplateDeleted = { },
+                            onCreateNewTemplate = { }
                         )
                     }
                 }
