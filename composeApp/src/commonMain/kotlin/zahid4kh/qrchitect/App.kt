@@ -19,9 +19,28 @@ import kotlinx.coroutines.isActive
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
+import org.koin.compose.KoinApplication
+import org.koin.dsl.module
+import zahid4kh.qrchitect.ui.MainScreen
 
 @Composable
-internal fun App() = AppTheme {
+internal fun App() {
+    KoinApplication(application = {
+        modules(appModule)
+    }) {
+        AppContent()
+    }
+}
+
+
+@Composable
+private fun AppContent() = AppTheme {
     var isDark by LocalThemeIsDark.current
 
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        MainScreen()
+    }
 }
