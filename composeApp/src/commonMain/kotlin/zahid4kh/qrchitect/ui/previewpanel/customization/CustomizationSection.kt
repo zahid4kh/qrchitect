@@ -1,5 +1,6 @@
 package zahid4kh.qrchitect.ui.previewpanel.customization
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -36,7 +37,7 @@ fun CustomizationSection(
                 containerColor = MaterialTheme.colorScheme.surfaceContainerLow
             )
         ) {
-            Box(modifier = Modifier.padding(12.dp)) {
+            Box(modifier = Modifier.padding(12.dp).animateContentSize()) {
                 content()
             }
         }

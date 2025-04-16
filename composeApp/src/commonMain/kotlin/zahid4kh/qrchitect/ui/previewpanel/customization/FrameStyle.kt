@@ -1,6 +1,7 @@
 package zahid4kh.qrchitect.ui.previewpanel.customization
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,90 +31,96 @@ fun FrameStyle(
     CustomizationSection(title = "Frame Style") {
         var showFrameOptions by remember { mutableStateOf(frameStyle != null) }
 
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Switch(
-                checked = showFrameOptions,
-                onCheckedChange = { checked ->
-                    showFrameOptions = checked
-                    if (!checked) {
-                        frameStyle = null
-                    } else if (frameStyle == null) {
-                        frameStyle = FrameStyle(
-                            type = FrameType.SQUARE,
-                            width = 4f,
-                            padding = 16f
+        Column{
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Switch(
+                    checked = showFrameOptions,
+                    onCheckedChange = { checked ->
+                        showFrameOptions = checked
+                        if (!checked) {
+                            frameStyle = null
+                        } else if (frameStyle == null) {
+                            frameStyle = FrameStyle(
+                                type = FrameType.SQUARE,
+                                width = 4f,
+                                padding = 16f
+                            )
+                        }
+                    }
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text("Add Frame")
+            }
+
+            if (showFrameOptions) {
+                var tempFrameStyle = frameStyle ?: FrameStyle(
+                    type = FrameType.SQUARE,
+                    width = 4f,
+                    padding = 16f
+                )
+                Column{
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text("Frame Type")
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        FrameType.entries.filter { it != FrameType.NONE }.forEach { type ->
+                            FilterChip(
+                                selected = tempFrameStyle.type == type,
+                                onClick = {
+                                    tempFrameStyle = tempFrameStyle.copy(type = type)
+                                    frameStyle = tempFrameStyle
+                                },
+                                label = { Text(type.name.lowercase().capitalize()) }
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text("Frame Width")
+                    Slider(
+                        value = tempFrameStyle.width,
+                        onValueChange = {
+                            tempFrameStyle = tempFrameStyle.copy(width = it)
+                            frameStyle = tempFrameStyle
+                        },
+                        valueRange = 1f..10f
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Text("Frame Padding")
+                    Slider(
+                        value = tempFrameStyle.padding,
+                        onValueChange = {
+                            tempFrameStyle = tempFrameStyle.copy(padding = it)
+                            frameStyle = tempFrameStyle
+                        },
+                        valueRange = 0f..50f
+                    )
+
+                    if (tempFrameStyle.type == FrameType.ROUNDED) {
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        Text("Corner Radius")
+                        Slider(
+                            value = tempFrameStyle.cornerRadius,
+                            onValueChange = {
+                                tempFrameStyle = tempFrameStyle.copy(cornerRadius = it)
+                                frameStyle = tempFrameStyle
+                            },
+                            valueRange = 0f..0.5f
                         )
                     }
                 }
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text("Add Frame")
-        }
 
-        if (showFrameOptions) {
-            var tempFrameStyle = frameStyle ?: FrameStyle(
-                type = FrameType.SQUARE,
-                width = 4f,
-                padding = 16f
-            )
 
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text("Frame Type")
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                FrameType.entries.filter { it != FrameType.NONE }.forEach { type ->
-                    FilterChip(
-                        selected = tempFrameStyle.type == type,
-                        onClick = {
-                            tempFrameStyle = tempFrameStyle.copy(type = type)
-                            frameStyle = tempFrameStyle
-                        },
-                        label = { Text(type.name.lowercase().capitalize()) }
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text("Frame Width")
-            Slider(
-                value = tempFrameStyle.width,
-                onValueChange = {
-                    tempFrameStyle = tempFrameStyle.copy(width = it)
-                    frameStyle = tempFrameStyle
-                },
-                valueRange = 1f..10f
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text("Frame Padding")
-            Slider(
-                value = tempFrameStyle.padding,
-                onValueChange = {
-                    tempFrameStyle = tempFrameStyle.copy(padding = it)
-                    frameStyle = tempFrameStyle
-                },
-                valueRange = 0f..50f
-            )
-
-            if (tempFrameStyle.type == FrameType.ROUNDED) {
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Text("Corner Radius")
-                Slider(
-                    value = tempFrameStyle.cornerRadius,
-                    onValueChange = {
-                        tempFrameStyle = tempFrameStyle.copy(cornerRadius = it)
-                        frameStyle = tempFrameStyle
-                    },
-                    valueRange = 0f..0.5f
-                )
             }
         }
+
     }
 }
 
