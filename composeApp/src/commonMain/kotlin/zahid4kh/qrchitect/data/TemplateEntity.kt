@@ -1,12 +1,8 @@
 package zahid4kh.qrchitect.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import kotlinx.datetime.Instant
 
-@Entity(tableName = "templates")
 data class TemplateEntity(
-    @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val name: String,
     val foregroundColor: Int,

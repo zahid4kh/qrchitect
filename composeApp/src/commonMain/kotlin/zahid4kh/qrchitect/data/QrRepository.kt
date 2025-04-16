@@ -10,10 +10,12 @@ import kotlinx.serialization.json.Json
 import zahid4kh.qrchitect.domain.*
 
 class QrRepository(
-    private val qrCodeDao: QrCodeDao,
-    private val templateDao: TemplateDao,
+    private val database: AppDatabase,
     private val json: Json
 ) {
+    private val qrCodeDao = database.qrCodeDao()
+    private val templateDao = database.templateDao()
+
     fun getAllQrCodesAsFlow(): Flow<List<QrCode>> {
         return qrCodeDao.getAllQrCodesAsFlow().map { entities ->
             entities.map { it.toDomainModel() }

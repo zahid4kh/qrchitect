@@ -1,24 +1,20 @@
 package zahid4kh.qrchitect.data
 
+import java.sql.Connection
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-
-@Database(
-    entities = [
-        QrCodeEntity::class,
-        TemplateEntity::class
-    ],
-    version = 1,
-    exportSchema = true
-)
-@TypeConverters(QrCodeTypeConverter::class, InstantConverter::class)
-abstract class AppDatabase : RoomDatabase() {
-    abstract fun qrCodeDao(): QrCodeDao
-    abstract fun templateDao(): TemplateDao
+interface AppDatabase {
+    fun qrCodeDao(): QrCodeDao
+    fun templateDao(): TemplateDao
 
     companion object {
         const val DATABASE_NAME = "qrchitect_db"
     }
+}
+
+class AppDatabaseImpl(private val connection: Connection) : AppDatabase {
+    private val qrCodeDaoInstance = QrCodeDaoImpl(connection)
+    private val templateDaoInstance = TemplateDaoImpl(connection)
+
+    override fun qrCodeDao(): QrCodeDao = qrCodeDaoInstance
+    override fun templateDao(): TemplateDao = templateDaoInstance
 }

@@ -1,15 +1,9 @@
 package zahid4kh.qrchitect.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.TypeConverters
 import kotlinx.datetime.Instant
 import zahid4kh.qrchitect.domain.QrCodeType
 
-@Entity(tableName = "qr_codes")
-@TypeConverters(QrCodeTypeConverter::class, InstantConverter::class)
 data class QrCodeEntity(
-    @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val content: String,
     val type: QrCodeType,
