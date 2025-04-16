@@ -151,6 +151,18 @@ fun TemplateCard(
     onDeleteClick: () -> Unit
 ) {
     var showDeleteDialog by remember { mutableStateOf(false) }
+    var imageBitmap by remember { mutableStateOf<ImageBitmap?>(null) }
+
+    LaunchedEffect(template.previewImageBytes) {
+        template.previewImageBytes?.let { bytes ->
+            try {
+                val image = Image.makeFromEncoded(bytes)
+                imageBitmap = image.toComposeImageBitmap()
+            } catch (e: Exception) {
+                println(e.message)
+            }
+        }
+    }
 
     Card(
         modifier = Modifier
@@ -172,26 +184,16 @@ fun TemplateCard(
                     .background(template.backgroundColor),
                 contentAlignment = Alignment.Center
             ) {
-                template.previewImageBytes?.let { bytes ->
-                    try {
-                        val image = Image.makeFromEncoded(bytes)
-                        Image(
-                            bitmap = image.toComposeImageBitmap(),
-                            contentDescription = "Template Preview",
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(8.dp)
-                        )
-                    } catch (e: Exception) {
-                        Icon(
-                            FeatherIcons.Image,
-                            contentDescription = null,
-                            tint = template.foregroundColor,
-                            modifier = Modifier.size(48.dp)
-                        )
-                    }
-                } ?: run {
+                if (imageBitmap != null) {
+                    Image(
+                        bitmap = imageBitmap!!,
+                        contentDescription = "Template Preview",
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(8.dp)
+                    )
+                } else {
                     Icon(
                         FeatherIcons.Image,
                         contentDescription = null,

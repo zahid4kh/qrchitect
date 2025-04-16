@@ -115,7 +115,19 @@ fun QrHistoryItem(
     onItemClick: () -> Unit,
     onDeleteClick: () -> Unit
 ) {
+    var imageBitmap by remember { mutableStateOf<ImageBitmap?>(null) }
     var showDeleteDialog by remember { mutableStateOf(false) }
+
+    LaunchedEffect(qrCode.imageBytes) {
+        qrCode.imageBytes?.let { bytes ->
+            try {
+                val image = Image.makeFromEncoded(bytes)
+                imageBitmap = image.toComposeImageBitmap()
+            } catch (e: Exception) {
+                println(e.message)
+            }
+        }
+    }
 
     Card(
         modifier = Modifier
@@ -139,25 +151,16 @@ fun QrHistoryItem(
                     .background(MaterialTheme.colorScheme.surfaceContainerLowest),
                 contentAlignment = Alignment.Center
             ) {
-                qrCode.imageBytes?.let { bytes ->
-                    try {
-                        val image = Image.makeFromEncoded(bytes)
-                        Image(
-                            bitmap = image.toComposeImageBitmap(),
-                            contentDescription = "QR Code",
-                            contentScale = ContentScale.Fit,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(4.dp)
-                        )
-                    } catch (e: Exception) {
-                        Icon(
-                            FeatherIcons.Image,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-                } ?: run {
+                if (imageBitmap != null) {
+                    Image(
+                        bitmap = imageBitmap!!,
+                        contentDescription = "QR Code",
+                        contentScale = ContentScale.Fit,
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(4.dp)
+                    )
+                } else {
                     Icon(
                         FeatherIcons.Image,
                         contentDescription = null,
