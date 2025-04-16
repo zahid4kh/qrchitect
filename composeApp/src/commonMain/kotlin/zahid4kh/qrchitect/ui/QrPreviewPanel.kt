@@ -99,6 +99,7 @@ fun QrPreviewPanel(
                 OutlinedButton(
                     onClick = onCustomizeQrCode,
                     enabled = qrImage != null && !isGenerating,
+                    shape = MaterialTheme.shapes.medium,
                     modifier = Modifier
                         .weight(1f)
                         .height(48.dp)
@@ -113,6 +114,7 @@ fun QrPreviewPanel(
                 Button(
                     onClick = onSaveImage,
                     enabled = qrImage != null && !isGenerating,
+                    shape = MaterialTheme.shapes.medium,
                     modifier = Modifier
                         .weight(1f)
                         .height(48.dp),
