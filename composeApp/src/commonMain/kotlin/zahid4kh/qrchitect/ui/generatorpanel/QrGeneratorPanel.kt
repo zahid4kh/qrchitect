@@ -128,7 +128,8 @@ fun QrGeneratorPanel(
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary
-                )
+                ),
+                shape = MaterialTheme.shapes.medium
             ) {
                 Text(
                     text = "Generate QR Code",
