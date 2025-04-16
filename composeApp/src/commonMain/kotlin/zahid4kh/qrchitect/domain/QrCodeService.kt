@@ -108,7 +108,7 @@ class QrCodeService {
 
         applyDotStyle(g2d, bitMatrix, cellSize, customization.dotStyle, fgColor)
 
-        applyEyeStyle(g2d, bitMatrix, cellSize, customization.eyeStyle, fgColor)
+        applyEyeStyle(g2d, bitMatrix, cellSize, customization.eyeStyle, fgColor, bgColor)
 
         customization.frameStyle?.let {
             applyFrameStyle(g2d, width, height, it, fgColor)
@@ -184,7 +184,8 @@ class QrCodeService {
         bitMatrix: BitMatrix,
         cellSize: Int,
         eyeStyle: EyeStyle,
-        defaultColor: java.awt.Color
+        defaultColor: java.awt.Color,
+        bgColor: java.awt.Color
     ) {
         val finderPatternSize = 7
         val innerColor = eyeStyle.innerColor?.let { java.awt.Color(it) } ?: defaultColor
