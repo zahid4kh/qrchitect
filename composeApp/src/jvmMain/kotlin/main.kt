@@ -7,20 +7,26 @@ import androidx.compose.ui.window.rememberWindowState
 import java.awt.Dimension
 import zahid4kh.qrchitect.App
 import org.jetbrains.compose.reload.DevelopmentEntryPoint
+import javax.swing.UIManager
 
-fun main() = application {
-    Window(
-        title = "QRchitect",
-        state = rememberWindowState(width = 1000.dp, height = 800.dp),
-        onCloseRequest = ::exitApplication,
-    ) {
-        window.minimumSize = Dimension(800, 600)
-        DevelopmentEntryPoint {
-            App()
+fun main() {
+
+    try {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName())
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+
+    application {
+        Window(
+            title = "QRchitect",
+            state = rememberWindowState(width = 1000.dp, height = 700.dp),
+            onCloseRequest = ::exitApplication,
+        ) {
+            window.minimumSize = Dimension(800, 600)
+            DevelopmentEntryPoint {
+                App()
+            }
         }
     }
 }
-
-@Preview
-@Composable
-fun AppPreview() { App() }
