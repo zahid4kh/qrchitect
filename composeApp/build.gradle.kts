@@ -9,8 +9,6 @@ plugins {
     alias(libs.plugins.compose)
     alias(libs.plugins.hotReload)
     alias(libs.plugins.kotlinx.serialization)
-    alias(libs.plugins.room)
-    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -28,7 +26,6 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.kotlinx.datetime)
-            implementation(libs.room.runtime)
             implementation(libs.composeIcons.featherIcons)
 
             implementation("com.google.zxing:core:3.5.2")
@@ -45,6 +42,8 @@ kotlin {
         jvmMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+
+            implementation("org.xerial:sqlite-jdbc:3.41.2.2")
         }
 
     }
@@ -79,14 +78,4 @@ composeCompiler {
 }
 tasks.register<ComposeHotRun>("runHot") {
     mainClass.set("MainKt")
-}
-
-room {
-    schemaDirectory("$projectDir/schemas")
-}
-
-dependencies {
-    with(libs.room.compiler) {
-        add("kspJvm", this)
-    }
 }
