@@ -8,18 +8,22 @@ import androidx.compose.ui.unit.dp
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Clock
 import compose.icons.feathericons.PlusSquare
+import compose.icons.feathericons.Settings
 import compose.icons.feathericons.Star
 import org.koin.compose.koinInject
+import zahid4kh.qrchitect.data.SettingsService
 import zahid4kh.qrchitect.ui.generatorpanel.QrGeneratorPanel
 import zahid4kh.qrchitect.ui.historypanel.QrHistoryPanel
 import zahid4kh.qrchitect.ui.previewpanel.customization.QrCustomizationDialog
 import zahid4kh.qrchitect.ui.previewpanel.QrPreviewPanel
+import zahid4kh.qrchitect.ui.settingspanel.SettingsPanel
 import zahid4kh.qrchitect.ui.templatepanel.QrTemplatePanel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
-    viewModel: MainViewModel = koinInject()
+    viewModel: MainViewModel = koinInject(),
+    settingsService: SettingsService = koinInject()
 ) {
     val state by viewModel.state.collectAsState()
     var selectedTab by remember { mutableStateOf(0) }
@@ -49,65 +53,81 @@ fun MainScreen(
                     text = { Text("Templates") },
                     icon = { Icon(FeatherIcons.Star, contentDescription = "Templates") }
                 )
+                Tab(
+                    selected = selectedTab == 3,
+                    onClick = { selectedTab = 3 },
+                    text = { Text("Settings") },
+                    icon = { Icon(FeatherIcons.Settings, contentDescription = "Settings") }
+                )
             }
 
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(8.dp)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxHeight()
-                ) {
-                    when (selectedTab) {
-                        0 -> QrGeneratorPanel(
-                            selectedType = state.selectedQrCodeType,
-                            onTypeChanged = viewModel::updateQrCodeType,
-                            content = state.qrContent,
-                            onContentChanged = viewModel::updateQrContent,
-                            onGenerate = viewModel::generateQrCode,
-                            errorCorrectionLevel = state.errorCorrectionLevel,
-                            onErrorCorrectionLevelChanged = viewModel::updateErrorCorrectionLevel,
-                            foregroundColor = state.foregroundColor,
-                            onForegroundColorChanged = viewModel::updateForegroundColor,
-                            backgroundColor = state.backgroundColor,
-                            onBackgroundColorChanged = viewModel::updateBackgroundColor
-                        )
-                        1 -> QrHistoryPanel(
-                            qrCodes = state.savedQrCodes,
-                            onQrCodeSelected = viewModel::selectQrCode,
-                            onQrCodeDeleted = viewModel::deleteQrCode
-                        )
-                        2 -> QrTemplatePanel(
-                            templates = state.templates,
-                            onTemplateSelected = { },
-                            onTemplateDeleted = { },
-                            onCreateNewTemplate = { }
+            when (selectedTab) {
+                0, 1, 2 -> {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(8.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight()
+                        ) {
+                            when (selectedTab) {
+                                0 -> QrGeneratorPanel(
+                                    selectedType = state.selectedQrCodeType,
+                                    onTypeChanged = viewModel::updateQrCodeType,
+                                    content = state.qrContent,
+                                    onContentChanged = viewModel::updateQrContent,
+                                    onGenerate = viewModel::generateQrCode,
+                                    errorCorrectionLevel = state.errorCorrectionLevel,
+                                    onErrorCorrectionLevelChanged = viewModel::updateErrorCorrectionLevel,
+                                    foregroundColor = state.foregroundColor,
+                                    onForegroundColorChanged = viewModel::updateForegroundColor,
+                                    backgroundColor = state.backgroundColor,
+                                    onBackgroundColorChanged = viewModel::updateBackgroundColor
+                                )
+                                1 -> QrHistoryPanel(
+                                    qrCodes = state.savedQrCodes,
+                                    onQrCodeSelected = viewModel::selectQrCode,
+                                    onQrCodeDeleted = viewModel::deleteQrCode
+                                )
+                                2 -> QrTemplatePanel(
+                                    templates = state.templates,
+                                    onTemplateSelected = { },
+                                    onTemplateDeleted = { },
+                                    onCreateNewTemplate = { }
+                                )
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.width(8.dp))
+
+                        QrPreviewPanel(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight(),
+                            qrImage = state.currentQrImage,
+                            isGenerating = state.isGenerating,
+                            onSaveImage = viewModel::saveCurrentQrCode,
+                            onCustomizeQrCode = viewModel::showCustomizationDialog
                         )
                     }
                 }
-
-                Spacer(modifier = Modifier.width(8.dp))
-
-                QrPreviewPanel(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxHeight(),
-                    qrImage = state.currentQrImage,
-                    isGenerating = state.isGenerating,
-                    onSaveImage = viewModel::saveCurrentQrCode,
-                    onCustomizeQrCode = viewModel::showCustomizationDialog
-                )
-
-                if (state.showCustomizationDialog) {
-                    QrCustomizationDialog(
-                        onDismissRequest = viewModel::hideCustomizationDialog,
-                        onApplyCustomization = viewModel::updateCustomization,
-                        initialCustomization = state.currentCustomization
+                3 -> {
+                    SettingsPanel(
+                        settingsService = settingsService,
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
+            }
+
+            if (state.showCustomizationDialog) {
+                QrCustomizationDialog(
+                    onDismissRequest = viewModel::hideCustomizationDialog,
+                    onApplyCustomization = viewModel::updateCustomization,
+                    initialCustomization = state.currentCustomization
+                )
             }
         }
     }

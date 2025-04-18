@@ -20,7 +20,9 @@ import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
 import org.koin.compose.KoinApplication
+import org.koin.compose.koinInject
 import org.koin.dsl.module
+import zahid4kh.qrchitect.data.SettingsService
 import zahid4kh.qrchitect.ui.MainScreen
 
 @Composable
@@ -35,7 +37,13 @@ internal fun App() {
 
 @Composable
 private fun AppContent() = AppTheme {
+    val settingsService = koinInject<SettingsService>()
     var isDark by LocalThemeIsDark.current
+
+    LaunchedEffect(Unit) {
+        val settings = settingsService.loadSettings()
+        isDark = settings.isDarkTheme
+    }
 
     Surface(
         modifier = Modifier.fillMaxSize(),
