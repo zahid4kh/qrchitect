@@ -10,7 +10,7 @@ import kotlinx.serialization.json.Json
 import zahid4kh.qrchitect.domain.*
 
 class QrRepository(
-    private val database: AppDatabase,
+    private val database: QrDatabase,
     private val json: Json
 ) {
     private val qrCodeDao = database.qrCodeDao()

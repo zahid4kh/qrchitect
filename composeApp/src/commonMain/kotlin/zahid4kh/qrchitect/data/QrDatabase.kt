@@ -5,11 +5,12 @@ import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.SQLException
 
-class AppDatabaseHelper {
+class QrDatabase {
     private var connection: Connection? = null
-    private var database: AppDatabase? = null
+    private val qrCodeDaoInstance by lazy { QrCodeDaoImpl(connection!!) }
+    private val templateDaoInstance by lazy { TemplateDaoImpl(connection!!) }
 
-    fun initialize(databaseName: String): AppDatabase {
+    fun initialize(databaseName: String = DATABASE_NAME): QrDatabase {
         Class.forName("org.sqlite.JDBC")
 
         val dbFolder = File(System.getProperty("user.home"), ".qrchitect")
@@ -22,8 +23,7 @@ class AppDatabaseHelper {
 
         connection = DriverManager.getConnection(jdbcUrl)
         createTablesIfNeeded()
-        database = AppDatabaseImpl(connection!!)
-        return database!!
+        return this
     }
 
     private fun createTablesIfNeeded() {
@@ -61,11 +61,18 @@ class AppDatabaseHelper {
         }
     }
 
+    fun qrCodeDao(): QrCodeDao = qrCodeDaoInstance
+    fun templateDao(): TemplateDao = templateDaoInstance
+
     fun close() {
         try {
             connection?.close()
         } catch (e: SQLException) {
             e.printStackTrace()
         }
+    }
+
+    companion object {
+        const val DATABASE_NAME = "qrchitect.db"
     }
 }

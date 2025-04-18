@@ -2,7 +2,7 @@ package zahid4kh.qrchitect
 
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module
-import zahid4kh.qrchitect.data.AppDatabaseHelper
+import zahid4kh.qrchitect.data.QrDatabase
 import zahid4kh.qrchitect.data.QrRepository
 import zahid4kh.qrchitect.domain.QrCodeService
 import zahid4kh.qrchitect.ui.MainViewModel
@@ -17,8 +17,7 @@ val appModule = module {
     }
 
     single {
-        val dbHelper = AppDatabaseHelper()
-        dbHelper.initialize("qrchitect.db")
+        QrDatabase().initialize()
     }
 
     single { QrRepository(get(), get()) }
