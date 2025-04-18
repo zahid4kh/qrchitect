@@ -13,7 +13,6 @@ import compose.icons.feathericons.Star
 import org.koin.compose.koinInject
 import zahid4kh.qrchitect.ui.generatorpanel.QrGeneratorPanel
 import zahid4kh.qrchitect.ui.historypanel.QrHistoryPanel
-import zahid4kh.qrchitect.ui.previewpanel.customization.QrCustomizationDialog
 import zahid4kh.qrchitect.ui.previewpanel.QrPreviewPanel
 import zahid4kh.qrchitect.ui.settingspanel.SettingsPanel
 import zahid4kh.qrchitect.ui.templatepanel.QrTemplatePanel
@@ -109,7 +108,6 @@ fun MainScreen(
                             qrImage = state.currentQrImage,
                             isGenerating = state.isGenerating,
                             onSaveImage = viewModel::saveCurrentQrCode,
-                            onCustomizeQrCode = viewModel::showCustomizationDialog
                         )
                     }
                 }
@@ -119,14 +117,6 @@ fun MainScreen(
                         modifier = Modifier.fillMaxSize()
                     )
                 }
-            }
-
-            if (state.showCustomizationDialog) {
-                QrCustomizationDialog(
-                    onDismissRequest = viewModel::hideCustomizationDialog,
-                    onApplyCustomization = viewModel::updateCustomization,
-                    initialCustomization = state.currentCustomization
-                )
             }
         }
     }

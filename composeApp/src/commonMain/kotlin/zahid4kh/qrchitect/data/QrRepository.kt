@@ -90,10 +90,6 @@ class QrRepository(
     }
 
     private fun QrCodeEntity.toDomainModel(): QrCode {
-        val customizationObj = customization?.let {
-            json.decodeFromString<QrCustomization>(it)
-        }
-
         return QrCode(
             id = id,
             content = content,
@@ -103,15 +99,11 @@ class QrRepository(
             foregroundColor = Color(foregroundColor),
             backgroundColor = Color(backgroundColor),
             errorCorrectionLevel = ErrorCorrectionLevel.valueOf(errorCorrectionLevel),
-            customization = customizationObj,
             imageBytes = imageData
         )
     }
 
     private fun QrCode.toEntity(): QrCodeEntity {
-        val customizationJson = customization?.let {
-            json.encodeToString(it)
-        }
 
         return QrCodeEntity(
             id = id,
@@ -122,26 +114,16 @@ class QrRepository(
             foregroundColor = foregroundColor.toArgb(),
             backgroundColor = backgroundColor.toArgb(),
             errorCorrectionLevel = errorCorrectionLevel.name,
-            customization = customizationJson,
             imageData = imageBytes
         )
     }
 
     private fun TemplateEntity.toDomainModel(): QrTemplate {
-        val dotStyleObj = json.decodeFromString<DotStyle>(dotStyle)
-        val eyeStyleObj = json.decodeFromString<EyeStyle>(eyeStyle)
-        val frameStyleObj = frameStyle?.let {
-            json.decodeFromString<FrameStyle>(it)
-        }
-
         return QrTemplate(
             id = id,
             name = name,
             foregroundColor = Color(foregroundColor),
             backgroundColor = Color(backgroundColor),
-            dotStyle = dotStyleObj,
-            eyeStyle = eyeStyleObj,
-            frameStyle = frameStyleObj,
             logoPath = logoPath,
             createdAt = createdAt,
             lastUsed = lastUsed,
@@ -150,20 +132,11 @@ class QrRepository(
     }
 
     private fun QrTemplate.toEntity(): TemplateEntity {
-        val dotStyleJson = json.encodeToString(dotStyle)
-        val eyeStyleJson = json.encodeToString(eyeStyle)
-        val frameStyleJson = frameStyle?.let {
-            json.encodeToString(it)
-        }
-
         return TemplateEntity(
             id = id,
             name = name,
             foregroundColor = foregroundColor.toArgb(),
             backgroundColor = backgroundColor.toArgb(),
-            dotStyle = dotStyleJson,
-            eyeStyle = eyeStyleJson,
-            frameStyle = frameStyleJson,
             logoPath = logoPath,
             createdAt = createdAt,
             lastUsed = lastUsed,

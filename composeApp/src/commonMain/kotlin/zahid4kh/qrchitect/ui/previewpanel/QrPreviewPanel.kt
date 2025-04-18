@@ -14,7 +14,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import compose.icons.FeatherIcons
-import compose.icons.feathericons.Edit2
 import compose.icons.feathericons.Image
 import compose.icons.feathericons.Save
 
@@ -23,7 +22,6 @@ fun QrPreviewPanel(
     qrImage: ImageBitmap?,
     isGenerating: Boolean,
     onSaveImage: () -> Unit,
-    onCustomizeQrCode: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Surface(
@@ -94,21 +92,6 @@ fun QrPreviewPanel(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                OutlinedButton(
-                    onClick = onCustomizeQrCode,
-                    enabled = qrImage != null && !isGenerating,
-                    shape = MaterialTheme.shapes.medium,
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(48.dp)
-                ) {
-                    Icon(FeatherIcons.Edit2, contentDescription = null)
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text("Customize")
-                }
-
-                Spacer(modifier = Modifier.width(8.dp))
-
                 Button(
                     onClick = onSaveImage,
                     enabled = qrImage != null && !isGenerating,

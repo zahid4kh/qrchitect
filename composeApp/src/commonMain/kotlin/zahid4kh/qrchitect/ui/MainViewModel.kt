@@ -10,7 +10,6 @@ import kotlinx.datetime.Clock
 import zahid4kh.qrchitect.data.QrRepository
 import zahid4kh.qrchitect.domain.*
 import zahid4kh.qrchitect.utils.FileUtils
-import java.io.File
 
 class MainViewModel(
     private val qrRepository: QrRepository,
@@ -26,7 +25,6 @@ class MainViewModel(
     private val _currentQrImage = MutableStateFlow<ImageBitmap?>(null)
     private val _isGenerating = MutableStateFlow(false)
     private val _savedQrCodes = MutableStateFlow<List<QrCode>>(emptyList())
-    private val _currentCustomization = MutableStateFlow<QrCustomization?>(null)
     private val _showCustomizationDialog = MutableStateFlow(false)
     private val _templates = MutableStateFlow<List<QrTemplate>>(emptyList())
 
@@ -39,7 +37,6 @@ class MainViewModel(
         _currentQrImage,
         _isGenerating,
         _savedQrCodes,
-        _currentCustomization,
         _showCustomizationDialog,
         _templates
     ) { args ->
@@ -52,7 +49,6 @@ class MainViewModel(
             currentQrImage = args[5] as? ImageBitmap,
             isGenerating = args[6] as Boolean,
             savedQrCodes = args[7] as List<QrCode>,
-            currentCustomization = args[8] as? QrCustomization,
             showCustomizationDialog = args[9] as Boolean,
             templates = args[10] as List<QrTemplate>
         )
@@ -109,8 +105,7 @@ class MainViewModel(
                     content = content,
                     foregroundColor = _foregroundColor.value,
                     backgroundColor = _backgroundColor.value,
-                    errorCorrectionLevel = _errorCorrectionLevel.value,
-                    customization = _currentCustomization.value
+                    errorCorrectionLevel = _errorCorrectionLevel.value
                 )
 
                 _currentQrImage.value = qrBitmap
@@ -133,8 +128,7 @@ class MainViewModel(
                     content = content,
                     foregroundColor = _foregroundColor.value,
                     backgroundColor = _backgroundColor.value,
-                    errorCorrectionLevel = _errorCorrectionLevel.value,
-                    customization = _currentCustomization.value
+                    errorCorrectionLevel = _errorCorrectionLevel.value
                 )
 
                 val name = generateQrCodeName(type, content)
@@ -147,8 +141,7 @@ class MainViewModel(
                     foregroundColor = _foregroundColor.value,
                     backgroundColor = _backgroundColor.value,
                     errorCorrectionLevel = _errorCorrectionLevel.value,
-                    imageBytes = qrBytes,
-                    customization = _currentCustomization.value
+                    imageBytes = qrBytes
                 )
 
                 qrRepository.saveQrCode(qrCode)
@@ -174,8 +167,7 @@ class MainViewModel(
                         content = qrCode.content,
                         foregroundColor = qrCode.foregroundColor,
                         backgroundColor = qrCode.backgroundColor,
-                        errorCorrectionLevel = qrCode.errorCorrectionLevel,
-                        customization = qrCode.customization
+                        errorCorrectionLevel = qrCode.errorCorrectionLevel
                     )
 
                     _currentQrImage.value = qrBitmap
@@ -190,19 +182,6 @@ class MainViewModel(
         scope.launch {
             qrRepository.deleteQrCode(qrCode)
         }
-    }
-
-    fun showCustomizationDialog() {
-        _showCustomizationDialog.value = true
-    }
-
-    fun hideCustomizationDialog() {
-        _showCustomizationDialog.value = false
-    }
-
-    fun updateCustomization(customization: QrCustomization) {
-        _currentCustomization.value = customization
-        generateQrCode()
     }
 
     private fun generateQrCodeName(type: QrCodeType, content: String): String {
@@ -250,7 +229,6 @@ data class MainState(
     val currentQrImage: ImageBitmap? = null,
     val isGenerating: Boolean = false,
     val savedQrCodes: List<QrCode> = emptyList(),
-    val currentCustomization: QrCustomization? = null,
     val showCustomizationDialog: Boolean = false,
     val templates: List<QrTemplate> = emptyList()
 )

@@ -128,9 +128,6 @@ class TemplateDaoImpl(private val connection: Connection) : TemplateDao {
         setString(1, template.name)
         setInt(2, template.foregroundColor)
         setInt(3, template.backgroundColor)
-        setString(4, template.dotStyle)
-        setString(5, template.eyeStyle)
-        setString(6, template.frameStyle)
         setString(7, template.logoPath)
         setLong(8, instantConverter.fromInstant(template.createdAt))
         setObject(9, template.lastUsed?.let { instantConverter.fromInstant(it) })
@@ -147,9 +144,6 @@ class TemplateDaoImpl(private val connection: Connection) : TemplateDao {
             name = getString("name"),
             foregroundColor = getInt("foreground_color"),
             backgroundColor = getInt("background_color"),
-            dotStyle = getString("dot_style"),
-            eyeStyle = getString("eye_style"),
-            frameStyle = getString("frame_style"),
             logoPath = getString("logo_path"),
             createdAt = instantConverter.toInstant(getLong("created_at")),
             lastUsed = lastUsed,

@@ -7,9 +7,6 @@ data class TemplateEntity(
     val name: String,
     val foregroundColor: Int,
     val backgroundColor: Int,
-    val dotStyle: String,
-    val eyeStyle: String,
-    val frameStyle: String? = null,
     val logoPath: String? = null,
     val createdAt: Instant,
     val lastUsed: Instant? = null,
@@ -25,9 +22,6 @@ data class TemplateEntity(
         if (name != other.name) return false
         if (foregroundColor != other.foregroundColor) return false
         if (backgroundColor != other.backgroundColor) return false
-        if (dotStyle != other.dotStyle) return false
-        if (eyeStyle != other.eyeStyle) return false
-        if (frameStyle != other.frameStyle) return false
         if (logoPath != other.logoPath) return false
         if (createdAt != other.createdAt) return false
         if (lastUsed != other.lastUsed) return false
@@ -44,9 +38,6 @@ data class TemplateEntity(
         result = 31 * result + name.hashCode()
         result = 31 * result + foregroundColor
         result = 31 * result + backgroundColor
-        result = 31 * result + dotStyle.hashCode()
-        result = 31 * result + eyeStyle.hashCode()
-        result = 31 * result + (frameStyle?.hashCode() ?: 0)
         result = 31 * result + (logoPath?.hashCode() ?: 0)
         result = 31 * result + createdAt.hashCode()
         result = 31 * result + (lastUsed?.hashCode() ?: 0)
