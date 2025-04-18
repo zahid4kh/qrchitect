@@ -18,7 +18,7 @@ class QrDatabase {
             dbFolder.mkdirs()
         }
 
-        val dbFile = File(dbFolder, "$databaseName.db")
+        val dbFile = File(dbFolder, databaseName)
         val jdbcUrl = "jdbc:sqlite:${dbFile.absolutePath}"
 
         connection = DriverManager.getConnection(jdbcUrl)
