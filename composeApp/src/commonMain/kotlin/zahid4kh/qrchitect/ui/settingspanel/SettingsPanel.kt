@@ -11,23 +11,14 @@ import androidx.compose.ui.unit.dp
 import compose.icons.FeatherIcons
 import compose.icons.feathericons.Moon
 import compose.icons.feathericons.Sun
-import kotlinx.coroutines.launch
-import zahid4kh.qrchitect.data.AppSettings
-import zahid4kh.qrchitect.data.SettingsService
 import zahid4kh.qrchitect.theme.LocalThemeIsDark
 
 @Composable
 fun SettingsPanel(
-    settingsService: SettingsService,
+    onThemeChanged: (Boolean) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val coroutineScope = rememberCoroutineScope()
     var isDark by LocalThemeIsDark.current
-
-    LaunchedEffect(Unit) {
-        val settings = settingsService.loadSettings()
-        isDark = settings.isDarkTheme
-    }
 
     Surface(
         modifier = modifier,
@@ -79,9 +70,7 @@ fun SettingsPanel(
                             checked = isDark,
                             onCheckedChange = { checked ->
                                 isDark = checked
-                                coroutineScope.launch {
-                                    settingsService.saveSettings(AppSettings(isDarkTheme = checked))
-                                }
+                                onThemeChanged(checked)
                             }
                         )
                     }

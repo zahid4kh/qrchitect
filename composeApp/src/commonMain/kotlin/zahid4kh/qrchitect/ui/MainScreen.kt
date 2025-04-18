@@ -11,7 +11,6 @@ import compose.icons.feathericons.PlusSquare
 import compose.icons.feathericons.Settings
 import compose.icons.feathericons.Star
 import org.koin.compose.koinInject
-import zahid4kh.qrchitect.data.SettingsService
 import zahid4kh.qrchitect.ui.generatorpanel.QrGeneratorPanel
 import zahid4kh.qrchitect.ui.historypanel.QrHistoryPanel
 import zahid4kh.qrchitect.ui.previewpanel.customization.QrCustomizationDialog
@@ -23,7 +22,7 @@ import zahid4kh.qrchitect.ui.templatepanel.QrTemplatePanel
 @Composable
 fun MainScreen(
     viewModel: MainViewModel = koinInject(),
-    settingsService: SettingsService = koinInject()
+    onThemeChanged: (Boolean) -> Unit = {}
 ) {
     val state by viewModel.state.collectAsState()
     var selectedTab by remember { mutableStateOf(0) }
@@ -116,7 +115,7 @@ fun MainScreen(
                 }
                 3 -> {
                     SettingsPanel(
-                        settingsService = settingsService,
+                        onThemeChanged = onThemeChanged,
                         modifier = Modifier.fillMaxSize()
                     )
                 }
