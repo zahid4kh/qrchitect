@@ -1,0 +1,30 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: QRchitect Repository
+Label: QRchitect
+Suite: stable
+Codename: stable
+Date: Tue, 22 Apr 2025 19:31:27 +0200
+Architectures: amd64
+Components: main
+Description: Repository for QRchitect
+SHA256:
+ dc6327794b335394f641387542b4d8c07fd1e486f5f8cfbcfed0d83957071614 515 main/binary-amd64/Packages
+ 4b99bfa01e0f7dc517d46e1f47bab3f5b9ca3c9922ae30cb09580608a444e860 387 main/binary-amd64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEotBvjPvxUDMcY7UDZcqWmFGdFNAFAmgH0nMACgkQZcqWmFGd
+FNAk1g//ZYjDFB9rBVCG9oIBGVEXTQTsDTLzYtOnxp5I3l4wXEPqC00zFeAkQazV
+dzsPSwKsqQ9fj3/b6GqTY1RPL+7WvetQrn0hFyLGbg+yx3TsoZX2xNectmzcsFG/
+nz1sBkW7QDibEyQJRcv57PhMJ6PsygeMd8S2b+KPYHuhvmZptaj7lUfr/73zo6fe
+xkuxAxRAdH3XvIUVm++J1kuwd/Dqvii6/n0ZAUvOdoEIKTeQtrlGDArNDQsDwGJV
+HA1SbpvhX4MdW6ZilX1azkaJsANj1JY4DLCcwyJAioS6eEk3hyEzr3D6CNYssayB
+q+Fn1hnJ3WIYMQQ2NPK6v5AlUnBHztbaqL0mLncCxMt0V06P35e8SWbbofTXmc/a
++3cktN+f6HkQhotIBSw53mjHeCUhS2POcXoe8uUwDcUmnzFUKawvwp+vExPV/TPh
+bEhjKlwAYvuJzDJNtTT8SUez6/7TkGFgmMjgGH/0hNt+TxeQoe+8nDo17aLB3gcK
+JVDZhd+KK18uoh6fEPXM5gTKNDLTkjhYQx4DIrGpXGrK4NySg9YHOY5czhxX09wn
+i/pTW8IJZIxay80M9O4WvhZWj8vyJlJsuS4V98n4otH4qLpfsQ8CNkiRvZFlmoW4
+nl++ptz+/bE+ZvxJQDVdOAxAd44QLaxNvuJzh6b9gkZZXDVEYeo=
+=K2Wd
+-----END PGP SIGNATURE-----
