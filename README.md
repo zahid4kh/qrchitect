@@ -6,7 +6,9 @@ A desktop application for creating and managing QR codes.
 
 ### Method 1: Direct Download
 
-1. Download the `.deb` package from [GitHub Releases](https://github.com/zahid4kh/qrchitect/releases)
+1. Download the desired `.deb` version from [GitHub Releases](https://github.com/zahid4kh/qrchitect/releases)
+or by clicking [here](https://github.com/zahid4kh/qrchitect/releases/download/v1.0.0/qrchitect_1.0.0_amd64.deb) (this will directly download the latest version)
+
 2. Install it using:
    ```bash
    sudo dpkg -i qrchitect_1.0.0_amd64.deb
