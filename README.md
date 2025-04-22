@@ -4,7 +4,7 @@ A desktop application for creating and managing QR codes.
 
 ## Installation
 
-### Method 1: Direct Download (Easiest)
+### Method 1: Direct Download
 
 1. Download the `.deb` package from [GitHub Releases](https://github.com/zahid4kh/qrchitect/releases)
 2. Install it using:
