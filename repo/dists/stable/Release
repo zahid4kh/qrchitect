@@ -1,0 +1,8 @@
+Origin: QRchitect Repository
+Label: QRchitect
+Suite: stable
+Codename: stable
+Date: 22/04/2025
+Architectures: amd64
+Components: main
+Description: Repository for QRchitect
