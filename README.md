@@ -19,12 +19,12 @@ A desktop application for creating and managing QR codes.
 1. Add the repository key:
 
     ```bash
-    wget -O - https://raw.githubusercontent.com/zahid4kh/qrchitect/main/public.key | sudo gpg --dearmor -o /usr/share/keyrings/qrchitect-archive-keyring.gpg
+    wget -O - https://zahid4kh.github.io/qrchitect/public.key | sudo gpg --dearmor -o /usr/share/keyrings/qrchitect-archive-keyring.gpg
     ```
 
 2. Add the repository:
     ```bash
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/qrchitect-archive-keyring.gpg] https://raw.githubusercontent.com/zahid4kh/qrchitect/main repo dists/stable main" | sudo tee /etc/apt/sources.list.d/qrchitect.list
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/qrchitect-archive-keyring.gpg] https://zahid4kh.github.io/qrchitect repo dists/stable main" | sudo tee /etc/apt/sources.list.d/qrchitect.list
     ```
 
 3. Update package list:
