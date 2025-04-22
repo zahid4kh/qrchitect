@@ -12,7 +12,13 @@ or by clicking [here](https://github.com/zahid4kh/qrchitect/releases/download/v1
 2. Install it using:
    ```bash
    sudo dpkg -i qrchitect_1.0.0_amd64.deb
+   ```
+   ```bash
    sudo apt install -f
+   ```
+   Then run with:
+   ```bash
+   qrchitect
    ```
 
 ## Building from Source
