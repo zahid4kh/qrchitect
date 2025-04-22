@@ -2,7 +2,7 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: $(date -R)
+Date: Tue, 22 Apr 2025 12:08:02 +0200
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
