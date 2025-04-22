@@ -1,9 +1,0 @@
-Package: qrchitect
-Version: 1.0.0
-Section: utils
-Priority: optional
-Architecture: amd64
-Depends: openjdk-17-jre
-Maintainer: Zahid Khalilov funroboticshere@gmail.com
-Description: QR code generator and manager
- QRchitect is a desktop application for creating and managing QR codes.
