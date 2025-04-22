@@ -1,0 +1,12 @@
+#!/bin/bash
+
+clear && ./gradlew clean
+echo "Building jar..."
+./gradlew packageUberJarForCurrentOS
+echo "JAR BUILT"
+
+echo "Copying JAR to the debian/opt/qrchitect"
+cp composeApp/build/compose/jars/QRchitect-linux-x64-1.0.0.jar debian/opt/qrchitect/QRchitect.jar
+echo "DONE"
+echo "Copying linux desktop icon to debian/usr/share/pixmaps/"
+cp composeApp/desktopAppIcons/LinuxIcon.png debian/usr/share/pixmaps/qrchitect.png
