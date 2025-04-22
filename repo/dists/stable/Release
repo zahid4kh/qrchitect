@@ -7,5 +7,6 @@ Architectures: amd64
 Components: main
 Description: Repository for QRchitect
 SHA256:
- $PACKAGES_SHA256 $PACKAGES_SIZE main/binary-amd64/Packages
- $PACKAGES_GZ_SHA256 $PACKAGES_GZ_SIZE main/binary-amd64/Packages.gz
+  85b92c4b04dd4fcbcfcaca8ab68d2db2d2e5c7da39c4242a48b278975e76c921 556 main/binary-amd64/Packages
+  47b0ecbcd1454aa05e26a76712c284f8b5d3df08dd24d8540e8929d9ae452c30 412 main/binary-amd64/Packages.gz
+
