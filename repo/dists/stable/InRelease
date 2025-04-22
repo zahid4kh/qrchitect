@@ -5,28 +5,27 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: Tue, 22 Apr 2025 11:50:02 UTC
+Date: Tue, 22 Apr 2025 12:32:19 UTC
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
 SHA256:
-  85b92c4b04dd4fcbcfcaca8ab68d2db2d2e5c7da39c4242a48b278975e76c921 556 main/binary-amd64/Packages
-  47b0ecbcd1454aa05e26a76712c284f8b5d3df08dd24d8540e8929d9ae452c30 412 main/binary-amd64/Packages.gz
-
+  bf83b8e7c93303fdd28c8f581cfb8ee4a07ed01980400a60463fe2cb97327d6e 515 main/binary-amd64/Packages
+  30ffeb94030eaf1c1a6223b74879e990eb7d4710643c65e281686a04bab5149e 384 main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHiCsaHGZ1bnJvYm90
-aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklwsuw/+L1+fKOueNOL+m6Ngr+Rc
-cvaUCNNsG/lvRLth1/AgL448rI0loB30ddYTWSpdyHcB2jGw+LbwXBQ3UevE+u+E
-NJrwJAgEobCSsh4JzFeJI4Ce5icWusgu/1bkOvEw16egmy0qAjTMiTRNiR8u2u1L
-5W6KE8tqiywgGrUN5NFVsmHkgNKkfeQojiNhG4bZi2k9L0sfumBARBP1Wp2x7T1Y
-M0K90ihSZIJ4Ouvw3paEPRImpiyHwzta42Nm3vWpQpGWvIW201RaRup/JaV3KgQ/
-WQkKkylVUZBT8MZvkz+iBdUdUC8mOU9Vp5Gzs8Dh7dWvGDobavBd18NZuhojguW9
-NtxzjqrECk81KFLHX/uC3mIPLIr7sYTQlK8SDUrVTQepS1v2B6MTp0D7guGq635/
-nJ7P1mxS1NDrIAUleduGbzTQOqNlmoQM0rTYENPjIlNH7lw2RDJAGg6y8Pi4BvRP
-7qZk/3crZCocu3zVZAuYYVIHko9gVQpi98Pqj0ob+t7BUI9azw8SFSKESlXTrKSG
-dKu1apUPpFvvO4ZWHW/bY4Qm70wnSkF1gschzvQgjkW0mV08yO5TYwEpHlGbsijG
-VAnVLVrOQ64yr4Peu+e+og2/+Jk/vagvmmFohzfzDH8Haf/G7q/3q3hwc++7XdyB
-ZUArh0fy9mzrZusJo90Svks=
-=j3IZ
+iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHjFYaHGZ1bnJvYm90
+aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklytlA/8Cr5e5d7SJzb7Bj/s/tyK
+qlN3OVFTtQvDmtBlBdPDn8utdakoqZWFuFp2WXOwf8YTBSNkRXQTl8wxVoGQEDhj
+iH+F120hNe7csWVzDvLD5+Cs27sn0c+EyREobVhQ4TvM6KO5pTFB2FssBhvzvN75
+90coC/lm3dnifbSgZxHKLJWdnQgoH8/rDn4kyGJXUUSeFe+mrzmWeFhq0979wBvc
+Q96Irrkm2jtF5agIgkZ1d6P7FBV2AE8YDrYFXc6t5qjQNuItSb5Tuj5CsG+mRR3q
+cif/aDCwAz+xKzl/JydyRxEjZWoaElZrGHsHl2flkiW8oLDnXo1ox/EWz5MmXtYF
+x89dpdOg68rKe4+4/6JqplVuj9J0wNxechBcDDDIQ2KurV3S7ietq5Cy0767y3bH
+J/oNoVjQQxJKSnDuV8/kI7nEMOtqnOkvV3XGGiy9dhITBUogxiKro+MCD/zSpY04
+X+PRvp2gOvqaBGA1sA8RAfvRBQMdBzqAjjIfEZg0uBmjTEp3j3R3mOMqFrxYV5Vr
+VW6TzLgZJU+ua1pDed+HzuJABgrZwLVRlTaAlbfq/IyXxoq5iNnaEZ7nHCA/4T0x
+vi/AZEc6wrGEx+Hv6We4eBkAa+GwtZonrcJBBZlnPaJu7ioXX/L19uIDJWmBNHKi
+FVChFt8WZeJ+5mZX+MJ/45w=
+=xL2/
 -----END PGP SIGNATURE-----

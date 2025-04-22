@@ -2,11 +2,10 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: Tue, 22 Apr 2025 11:50:02 UTC
+Date: Tue, 22 Apr 2025 12:32:19 UTC
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
 SHA256:
-  85b92c4b04dd4fcbcfcaca8ab68d2db2d2e5c7da39c4242a48b278975e76c921 556 main/binary-amd64/Packages
-  47b0ecbcd1454aa05e26a76712c284f8b5d3df08dd24d8540e8929d9ae452c30 412 main/binary-amd64/Packages.gz
-
+  bf83b8e7c93303fdd28c8f581cfb8ee4a07ed01980400a60463fe2cb97327d6e 515 main/binary-amd64/Packages
+  30ffeb94030eaf1c1a6223b74879e990eb7d4710643c65e281686a04bab5149e 384 main/binary-amd64/Packages.gz

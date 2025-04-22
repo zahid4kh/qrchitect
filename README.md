@@ -13,7 +13,6 @@ A desktop application for creating and managing QR codes.
    sudo apt install -f
    ```
 
-
 ### Method 2: Using the APT Repository
 
 1. Add the repository key:
@@ -24,7 +23,7 @@ A desktop application for creating and managing QR codes.
 
 2. Add the repository:
     ```bash
-    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/qrchitect-archive-keyring.gpg] https://zahid4kh.github.io/qrchitect/repo stable main" | sudo tee /etc/apt/sources.list.d/qrchitect.list    
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/qrchitect-archive-keyring.gpg] https://zahid4kh.github.io/qrchitect repo stable main" | sudo tee /etc/apt/sources.list.d/qrchitect.list
     ```
 
 3. Update package list:
@@ -54,4 +53,3 @@ To remove QRchitect:
     ```bash
     ./gradlew packageReleaseUberJarForCurrentOS
     ```
-
