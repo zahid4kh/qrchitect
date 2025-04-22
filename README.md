@@ -39,6 +39,13 @@ A desktop application for creating and managing QR codes.
     ```bash
     sudo apt install qrchitect
     ```
+## Uninstallation
+
+To remove QRchitect:
+
+   ```bash
+   sudo apt remove qrchitect
+   ```
 
 ## Building from Source
 
