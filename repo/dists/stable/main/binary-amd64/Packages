@@ -3,7 +3,7 @@ Version: 1.0.0
 Architecture: amd64
 Maintainer: Zahid Khalilov funroboticshere@gmail.com
 Depends: openjdk-17-jre
-Filename: dists/stable/main/binary-amd64/qrchitect_1.0.0_amd64.deb
+Filename: https://github.com/zahid4kh/qrchitect/releases/download/v1.0.0/qrchitect_1.0.0_amd64.deb
 Size: 53399792
 MD5sum: fed7d1b5a0b15d451fea1314b082b228
 SHA1: d9071884a457f1a7c4eca969bd941ab2855cd82a
