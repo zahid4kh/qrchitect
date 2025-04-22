@@ -5,7 +5,7 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: Tue, 22 Apr 2025 12:08:02 UTC
+Date: Tue, 22 Apr 2025 12:08:02 +0000
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
@@ -14,18 +14,18 @@ SHA256:
  $PACKAGES_GZ_SHA256 $PACKAGES_GZ_SIZE main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHfnQaHGZ1bnJvYm90
-aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklxc5w/+L4yiSpEnSKr8XwjmewPD
-vabMbkzmZkkRvWR9vvQchsCTsLQZbzTnnphLfa6y4FgitGI3ovwKwmJqvXfx1tsW
-/TuWJykdOmH43wgV8Q0T1DW43VEDcMaw+ORKbPiKUlTWydu3+bqwxYsXMRtm5C1N
-YJwE5lMl9s0V/ckmGRerPNYe4WdGzuDK3iUsnKfTuFsN5cgxitDQDVAY/m6Y1y5o
-E9+nVc2e30NOI7Sb55CWvNYMR4tjJB/CHzWTdbZDvDQLyCWov/6yc17O4W2WNcy7
-eJH/ZmQX8086z12Mb0JQFnLZ4vSehVO38MouARfi0K8ZluvnRQXHOIebVRx196dO
-xlNHO5ZZodzP64VHnMZ5/rATq9XJOuXy9YbOeM042QKKsHskBrbwndcvTK5Wu46/
-zWtYdsWPGEsxRg70x4XEn+ctsDDJGJsQv/TQ3hXoZNrg1mdmpxK78GyLBHEwrUk9
-qgEF3+YzgUpg1kOFxWPFfd5audiuj/Rp0/MIJOodu6D98RUCVe2MQZjpYrN/XTXL
-Ez3XEvQsvrUJIilnqOFgq8RtQUrRzK3t85R4uauN9lzJwzjJ/k2xnCYHcJpdPR6o
-5Etb8Alo7F6BhkOOnsXnkWw8xfieamzpreikScwFbPGwOFyrqBKcIGWiRTfBC70j
-pgqSWLswBw28E6rSma04WgQ=
-=TpuU
+iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHgF0aHGZ1bnJvYm90
+aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklwKhBAAhOODwUj7Tdtbpwb77m/j
+1T9euvp7Eg4LKY7bm9vg6R00cHO/abgk70AedP/VYaVT/cw/nqFDZpvEYCT23Rvj
+rB/cQcmeGGfboILqEBzLQRipi9d9sVRlIlA4lzbwfmXM4unJ8c42D9nzHYdeNf41
+Q7Vv9UnGcEFUHAZUlIF+549GCkO4ru+fZVFoR+snY8PwGYkBcO/CO3I7+TXjhLXA
+h+uqFp8R3k/qaYU18sbklItu2j/LlGKlErd/qjGpTisBJbXfZ/oXNnIt41rSaqxA
+lzSyhKs+S+22skT+c0ErKIBHnYd3nSUbrTPA4TledexZKhrmYy+nq/5Z5Hs8hVu3
+iuuZgZIgOP7TU/xK14LT78GxIOa+RTROm1j+rExgaSPEV6B+8mHS2zzpYlj/O1ls
+ytb5fPr/hCk/vEt6b6K3qGs6YT26tn2VmRmOAVu3YfvvmR34Fxe0LTFhexmpjzmm
+ChWqa5vnczgJxUhuJxr81/7lC4M27x7nbqmwepcAjU8eTiq7bodGIPZF6SvSJAN2
+WfL5JnWKj8bWmpM2aiA0wxwFg4HJFyhE4XwM9EXEOrlfg8oDali024TdQ7OaWxXJ
+Rtle5db930mNOIHYYsS5Frf/7SRPmBgQxCrMWOOeSk8gvgLxWPIC8+DNgSK/WTkw
+gnpv59V01x0O6rxusiwSu/4=
+=VBlz
 -----END PGP SIGNATURE-----
