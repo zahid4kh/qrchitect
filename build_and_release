@@ -1,0 +1,127 @@
+#!/bin/bash
+
+# build_and_release - Script to build and publish QRchitect Debian package to GitHub releases
+# Usage: ./build_and_release <version>
+# Example: ./build_and_release 1.0.1
+
+set -e
+LOG_FILE="release_$(date +%Y%m%d_%H%M%S).log"
+echo "Starting build and release process at $(date)" > $LOG_FILE
+
+PACKAGE_NAME="qrchitect"
+GITHUB_USERNAME="zahid4kh"
+REPO_NAME="qrchitect"
+MAINTAINER="Zahid Khalilov funroboticshere@gmail.com"
+DESCRIPTION="QR code generator and manager"
+LONG_DESCRIPTION="QRchitect is a desktop application for creating and managing QR codes."
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <version>"
+    echo "Example: $0 1.0.1"
+    exit 1
+fi
+
+VERSION=$1
+TAG_NAME="v$VERSION"
+DEB_FILE="${PACKAGE_NAME}_${VERSION}_amd64.deb"
+
+log() {
+    echo "[$(date +"%Y-%m-%d %H:%M:%S")] $1" | tee -a $LOG_FILE
+}
+
+log "Building JAR with Gradle..."
+./gradlew clean packageUberJarForCurrentOS || {
+    log "ERROR: Failed to build JAR file"
+    exit 1
+}
+
+JAR_FILE=$(find composeApp/build/compose/jars -name "*.jar" -type f | head -n 1)
+if [ -z "$JAR_FILE" ]; then
+    log "ERROR: No JAR file found after build"
+    exit 1
+fi
+
+log "Found JAR file: $JAR_FILE"
+
+log "Creating Debian package structure..."
+mkdir -p debian/DEBIAN
+mkdir -p debian/usr/bin
+mkdir -p debian/usr/share/applications
+mkdir -p debian/usr/share/pixmaps
+mkdir -p debian/opt/$PACKAGE_NAME
+
+log "Creating control file..."
+cat > debian/DEBIAN/control << EOF
+Package: $PACKAGE_NAME
+Version: $VERSION
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: openjdk-17-jre
+Maintainer: $MAINTAINER
+Description: $DESCRIPTION
+ $LONG_DESCRIPTION
+EOF
+
+log "Creating launcher script..."
+cat > debian/usr/bin/$PACKAGE_NAME << EOF
+#!/bin/bash
+java -jar /opt/$PACKAGE_NAME/QRchitect.jar
+EOF
+chmod +x debian/usr/bin/$PACKAGE_NAME
+
+log "Creating desktop file..."
+cat > debian/usr/share/applications/$PACKAGE_NAME.desktop << EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=QRchitect
+Comment=$DESCRIPTION
+Exec=$PACKAGE_NAME
+Icon=$PACKAGE_NAME
+Terminal=false
+Categories=Utility;
+EOF
+
+log "Copying application files..."
+cp "$JAR_FILE" debian/opt/$PACKAGE_NAME/QRchitect.jar
+cp composeApp/desktopAppIcons/LinuxIcon.png debian/usr/share/pixmaps/$PACKAGE_NAME.png
+
+log "Building .deb package..."
+dpkg-deb --build debian "$DEB_FILE"
+
+log "Debian package created: $DEB_FILE"
+DEB_SIZE=$(du -h "$DEB_FILE" | cut -f1)
+log "Package size: $DEB_SIZE"
+
+log "Updating README.md with new version information..."
+sed -i "s|qrchitect_[0-9.]\+_amd64.deb|qrchitect_${VERSION}_amd64.deb|g" README.md
+sed -i "s|v[0-9.]\+/qrchitect_[0-9.]\+_amd64.deb|v${VERSION}/qrchitect_${VERSION}_amd64.deb|g" README.md
+
+log "Committing changes to git..."
+git add README.md
+git commit -m "Prepare release v$VERSION"
+
+log "Creating git tag $TAG_NAME..."
+git tag -a "$TAG_NAME" -m "Version $VERSION"
+
+log "Pushing changes and tag to GitHub..."
+git push && git push origin "$TAG_NAME"
+
+if command -v gh &> /dev/null; then
+    log "Creating GitHub release using GitHub CLI..."
+    gh release create "$TAG_NAME" \
+        --title "QRchitect $VERSION" \
+        --notes "Release of version $VERSION" \
+        "$DEB_FILE"
+else
+    log "GitHub CLI not found. Please manually create a release on GitHub:"
+    log "1. Go to: https://github.com/$GITHUB_USERNAME/$REPO_NAME/releases/new"
+    log "2. Tag version: $TAG_NAME"
+    log "3. Release title: QRchitect $VERSION"
+    log "4. Upload the Debian package: $DEB_FILE"
+    log "5. Publish release"
+fi
+
+log "Build and release process completed successfully!"
+log "Release URL: https://github.com/$GITHUB_USERNAME/$REPO_NAME/releases/tag/$TAG_NAME"
