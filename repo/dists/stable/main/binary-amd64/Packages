@@ -4,10 +4,10 @@ Architecture: amd64
 Maintainer: Zahid Khalilov funroboticshere@gmail.com
 Depends: openjdk-17-jre
 Filename: pool/main/q/qrchitect/qrchitect_1.0.0_amd64.deb
-Size: 53399788
-MD5sum: dc94012a30879be4782decf46e320e4b
-SHA1: 0d2ac5809254394b2694d5ea03e2577e880ba0e4
-SHA256: 3f1a9b0d5a6ddb6cf1ae4663ecac95c84d7ee8653a785808f621c758be2adae8
+Size: 53399894
+MD5sum: 1228643d2075d966fa05e73a3fd2bb41
+SHA1: 6bc5dc99744364578e54cb403b077c7f3b2986de
+SHA256: 5477d002d84b82dd6ca84372247e8d1bc9ab785fe6f1d6a4e764c7438dad95a8
 Section: utils
 Priority: optional
 Description: QR code generator and manager
