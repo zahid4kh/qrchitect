@@ -5,7 +5,7 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: Tue, 22 Apr 2025 12:08:02
+Date: Tue, 22 Apr 2025 12:08:02 UTC
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
@@ -14,18 +14,18 @@ SHA256:
  $PACKAGES_GZ_SHA256 $PACKAGES_GZ_SIZE main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHazEaHGZ1bnJvYm90
-aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklzxag/9G7NE34E6ZYPjJbHpZuKE
-/39NRQTo1Am/O/pJqVrXI610YbyfuQWZLrzmd2UU6690rokrlyhIHXxH38Nm46gE
-9cEESmyJXE16lGuQAlwni/J5mbJiYZlSLS3snYN8uWE17YWFsbxWXgV8h2YVSJjI
-2ucNWddVYxWFCldrOk8ijnHsb5nZUnQXO/D2SloWq6K+IE6x/jyQJsfVi+31bM2m
-W6g4yswNP0cOjWkVTXgWI0IJXru//MCwTXRe3h539geRsQuUH6v/BXPzViKoGRFT
-dBNdq6KVChvpZMFCREf757JGCl17kDlgJWfbLmLNO+mqtraedEB0piEd7pCMS3V4
-5/Blwb+r7kXldUYsbsKBhXr76TrAsH4zuSP94w+AOb5uxlOcpN9hPHQfNJZOKxmD
-CBMlYi+ZYS3mnElJCXAWTCV5ppPGzRyixrUH3HyP5c/DdrN6dYd1UvyYi2klMEIc
-bjrhb6kA7zlKNhKztocKnpC/GmrBV592K4uGp6HjmkCM+q2FLEhKSB8UAsTaQZcr
-/jMCH9czjof+6OaEwOfYZyFE3Ag+/kKqzSvEYlm4huo9M9LypQTy8C+dMubQftTh
-g8En+2TwlzPD2mdQs1smsOXswv1VxI6nBeU7E2EU/qwaaEcbEHet0lS0yOx2K/E+
-dLf+/yGPJNaPhwQ7NfFAI8I=
-=G0d2
+iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHfnQaHGZ1bnJvYm90
+aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklxc5w/+L4yiSpEnSKr8XwjmewPD
+vabMbkzmZkkRvWR9vvQchsCTsLQZbzTnnphLfa6y4FgitGI3ovwKwmJqvXfx1tsW
+/TuWJykdOmH43wgV8Q0T1DW43VEDcMaw+ORKbPiKUlTWydu3+bqwxYsXMRtm5C1N
+YJwE5lMl9s0V/ckmGRerPNYe4WdGzuDK3iUsnKfTuFsN5cgxitDQDVAY/m6Y1y5o
+E9+nVc2e30NOI7Sb55CWvNYMR4tjJB/CHzWTdbZDvDQLyCWov/6yc17O4W2WNcy7
+eJH/ZmQX8086z12Mb0JQFnLZ4vSehVO38MouARfi0K8ZluvnRQXHOIebVRx196dO
+xlNHO5ZZodzP64VHnMZ5/rATq9XJOuXy9YbOeM042QKKsHskBrbwndcvTK5Wu46/
+zWtYdsWPGEsxRg70x4XEn+ctsDDJGJsQv/TQ3hXoZNrg1mdmpxK78GyLBHEwrUk9
+qgEF3+YzgUpg1kOFxWPFfd5audiuj/Rp0/MIJOodu6D98RUCVe2MQZjpYrN/XTXL
+Ez3XEvQsvrUJIilnqOFgq8RtQUrRzK3t85R4uauN9lzJwzjJ/k2xnCYHcJpdPR6o
+5Etb8Alo7F6BhkOOnsXnkWw8xfieamzpreikScwFbPGwOFyrqBKcIGWiRTfBC70j
+pgqSWLswBw28E6rSma04WgQ=
+=TpuU
 -----END PGP SIGNATURE-----
