@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=QRchitect
+Comment=QR code generator and manager
+Exec=qrchitect
+Icon=qrchitect
+Terminal=false
+Categories=Utility;
