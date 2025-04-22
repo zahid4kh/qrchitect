@@ -5,7 +5,7 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: Tue, 22 Apr 2025 12:08:02 +0000
+Date: Tue, 22 Apr 2025 13:45:02 +0200
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
@@ -14,18 +14,18 @@ SHA256:
  $PACKAGES_GZ_SHA256 $PACKAGES_GZ_SIZE main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHgF0aHGZ1bnJvYm90
-aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklwKhBAAhOODwUj7Tdtbpwb77m/j
-1T9euvp7Eg4LKY7bm9vg6R00cHO/abgk70AedP/VYaVT/cw/nqFDZpvEYCT23Rvj
-rB/cQcmeGGfboILqEBzLQRipi9d9sVRlIlA4lzbwfmXM4unJ8c42D9nzHYdeNf41
-Q7Vv9UnGcEFUHAZUlIF+549GCkO4ru+fZVFoR+snY8PwGYkBcO/CO3I7+TXjhLXA
-h+uqFp8R3k/qaYU18sbklItu2j/LlGKlErd/qjGpTisBJbXfZ/oXNnIt41rSaqxA
-lzSyhKs+S+22skT+c0ErKIBHnYd3nSUbrTPA4TledexZKhrmYy+nq/5Z5Hs8hVu3
-iuuZgZIgOP7TU/xK14LT78GxIOa+RTROm1j+rExgaSPEV6B+8mHS2zzpYlj/O1ls
-ytb5fPr/hCk/vEt6b6K3qGs6YT26tn2VmRmOAVu3YfvvmR34Fxe0LTFhexmpjzmm
-ChWqa5vnczgJxUhuJxr81/7lC4M27x7nbqmwepcAjU8eTiq7bodGIPZF6SvSJAN2
-WfL5JnWKj8bWmpM2aiA0wxwFg4HJFyhE4XwM9EXEOrlfg8oDali024TdQ7OaWxXJ
-Rtle5db930mNOIHYYsS5Frf/7SRPmBgQxCrMWOOeSk8gvgLxWPIC8+DNgSK/WTkw
-gnpv59V01x0O6rxusiwSu/4=
-=VBlz
+iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHgSAaHGZ1bnJvYm90
+aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklxatQ/+I60z0+updChGckhtrTfu
+K5co2a81Gw6BTlOsGJY5CBCTUTqlp2rg1IXu0O8gpLOu3IsOTxIyz4hb7Fyk4hZy
+0qiZP9XbunqeBLsUuF55/ejvefajXB/1fflV0i/Z2YxWaYPsy++wCGf96Yosoz6m
+AUbyOgT3BQTbJ2G6iAvJcRu80OoebV2Zw6tgHeXfp0z8Nz5oBi8IBUAgx0C56qlO
+YhvY8gnDdCRIvOgejBCdFMK/KzW9dZHkOxm0wUsA9YhUdC5tSnOju+PNJpZcfQlG
++xhkH5Ycabra6fMvQzRcf3c9HSfSv12NHXkgZeSZKs7J6nHZwlad+WRBfDmlqTZQ
+Uqv4Bn34/ZufDB9505TZ0CekRyMKGiu9WOYVm3QohlAvYBjPeLifuapYpi4p3Vys
+Oj4qycP4mW8QL+VBeLxQdYxL/f770iqSwBUlPNFCDn0qj5wgnVB8t8NDkMtsLtAR
+gsfWNrU7UiG5ySPuk/c38424TtZ52NsR7kvKUXB6WL0dwg8fqepeSdudubAqAd0P
+ETIAuvkoybEuXGJ255ftVdNXMjCk00yGbBNH2x3w6RHqybSaP/MqIXynkkyn6ZQR
+CBIykNKifJsMff5xRkQYsIW0D53cnrH6HagO7hbwcKDVRyeO2fgCIGMTrml4HcWL
+SnOpoQMJdcT0XeeooYwDpIE=
+=G+9b
 -----END PGP SIGNATURE-----
