@@ -2,7 +2,10 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: 22/04/2025
+Date: $(date -R)
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
+SHA256:
+ $PACKAGES_SHA256 $PACKAGES_SIZE main/binary-amd64/Packages
+ $PACKAGES_GZ_SHA256 $PACKAGES_GZ_SIZE main/binary-amd64/Packages.gz

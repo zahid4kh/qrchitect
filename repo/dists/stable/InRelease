@@ -5,24 +5,27 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: 22/04/2025
+Date: $(date -R)
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
+SHA256:
+ $PACKAGES_SHA256 $PACKAGES_SIZE main/binary-amd64/Packages
+ $PACKAGES_GZ_SHA256 $PACKAGES_GZ_SIZE main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHWaEaHGZ1bnJvYm90
-aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUklzT4RAAsK5AMlvBNgxECvyzkmOT
-bcgjAUVEFWc5mtAw7DjsgeMMBa0fzfFeNeofU3OiILViB9VlrHB3oBVeV/lWBbqg
-fKQhbWTeMoYSs+W0RQy/92uJy/zmwl855/BmyZ/waVUGIfdtPV1ZZbZpVGKOukR/
-zgBd59flQ9bPueT6D4cJV1ZMSYw+gyXkAWr5Ook55lgo4+4Uwc4tymNmB0fbDfkU
-cT6pZ3MIYm/L/2OreT15x3pFsTty9VeQ3B+9qqkDaQRQspGPhfLVLN+Sl6zwbxeY
-dInB1SZSyX08Rka7sV/eOkW9yEhehhmXtz3c7ci224Y9WGlONTZFfNR36vK1+rHO
-4DN4s4buddthVmlZNHqBIuF2o7WpkZyus5dnRJu+CxnfzRH0GIzbgnSofJ+2Zd7E
-FPv6aUe3A0rzOAKHmYOzK7s+RQd6xuVM9cV6KCmsbSphQJkUYoVXvucQM+2KJBPD
-pykV/r26kO2AQ9z8sdVw2RNdezjmmmuYhD32JcMjXSkeZJCOjZpI0dpVr9juSRBb
-sOZ7avPpDJuB1mwHBBngem4aj/fPchpC9YCxxMx32UB1ljtNU6qvezzTonszMsTx
-lB0pbxzbM2NlEawca3ztcZV4EF0jEZaWn8WcpTr7TFTk4b5dJB5MrSNVoUB4n7Ex
-xQXrj+eSnACl/IkKD9ZEqpM=
-=GbOo
+iQJOBAEBCgA4FiEEtGmUdbY7KK3vLEaPehrHzLfUklwFAmgHaS4aHGZ1bnJvYm90
+aWNzaGVyZUBnbWFpbC5jb20ACgkQehrHzLfUkly7DRAAj5MgNkBqBR00GdfG87hC
+Uk0kjrOScrAgXCVScpk+YS5ToQq6EIHFm1zeSm+Z8ytyYZBCniFl9OD64Avds8dQ
+RE2+zFTkKv21dCpikqbe1G+uvvWDgW4V9Nj3uwrsI6751w08nqPktVZydc+g8mFA
+Bg1iv3EoQOzL8dqAfpzg8A+lQAdFtVJ4brmh8NXjx2Yy0mWBzy8NCLyx2s8VriCw
+fl9+uDtMnCS7zeNjMdaxAG6QRqXdlasZ/Ed8L29d9D4up0TC1aUVRbGxAWJvorb1
+cFKPxQM9SpXeYVkXRAYwcasp/Kz44ZsYHjPxM7dIuukV+GMEFPwJEa0beAjzZsOC
+8jGC7b+LmPKUysgetlLvt3IQf532op4R2vxqI7g3P/6EQsZLEouSDel7GYhbxvOf
+0y+44TuU7kq6Oc0i1vqpXW62itXb123BQnC/W6Dg/EoOpAVa2NcuTcWWqPXZDce8
+h7gfyymSqc8n9WFOV6UYfA8hQMIG/efHEvsRMSnDsZLamUE5JJ118dwdlykibWTq
+8ZafmUusPepTpWtSWQ4r7ldTdVf3iSxCUR8GVcsUDyx4uKuUBC7jwxeCZE4Vk+Xw
+dhTSO3stp5PuQUxyTPGUGf4dma2TocL9k3fHQ9O5mukoUrHrMMXhbRw/UYvZLOYh
+6bB6gEl5ErlHQDvUdnQZj6w=
+=lKSL
 -----END PGP SIGNATURE-----
