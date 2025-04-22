@@ -5,7 +5,7 @@ Origin: QRchitect Repository
 Label: QRchitect
 Suite: stable
 Codename: stable
-Date: Tue, 22 Apr 2025 17:31:27 UTC
+Date: Tue, 22 Apr 2025 17:51:54 UTC
 Architectures: amd64
 Components: main
 Description: Repository for QRchitect
@@ -14,17 +14,17 @@ SHA256:
  4b99bfa01e0f7dc517d46e1f47bab3f5b9ca3c9922ae30cb09580608a444e860 387 main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEotBvjPvxUDMcY7UDZcqWmFGdFNAFAmgH0nMACgkQZcqWmFGd
-FNAk1g//ZYjDFB9rBVCG9oIBGVEXTQTsDTLzYtOnxp5I3l4wXEPqC00zFeAkQazV
-dzsPSwKsqQ9fj3/b6GqTY1RPL+7WvetQrn0hFyLGbg+yx3TsoZX2xNectmzcsFG/
-nz1sBkW7QDibEyQJRcv57PhMJ6PsygeMd8S2b+KPYHuhvmZptaj7lUfr/73zo6fe
-xkuxAxRAdH3XvIUVm++J1kuwd/Dqvii6/n0ZAUvOdoEIKTeQtrlGDArNDQsDwGJV
-HA1SbpvhX4MdW6ZilX1azkaJsANj1JY4DLCcwyJAioS6eEk3hyEzr3D6CNYssayB
-q+Fn1hnJ3WIYMQQ2NPK6v5AlUnBHztbaqL0mLncCxMt0V06P35e8SWbbofTXmc/a
-+3cktN+f6HkQhotIBSw53mjHeCUhS2POcXoe8uUwDcUmnzFUKawvwp+vExPV/TPh
-bEhjKlwAYvuJzDJNtTT8SUez6/7TkGFgmMjgGH/0hNt+TxeQoe+8nDo17aLB3gcK
-JVDZhd+KK18uoh6fEPXM5gTKNDLTkjhYQx4DIrGpXGrK4NySg9YHOY5czhxX09wn
-i/pTW8IJZIxay80M9O4WvhZWj8vyJlJsuS4V98n4otH4qLpfsQ8CNkiRvZFlmoW4
-nl++ptz+/bE+ZvxJQDVdOAxAd44QLaxNvuJzh6b9gkZZXDVEYeo=
-=K2Wd
+iQIzBAEBCgAdFiEEotBvjPvxUDMcY7UDZcqWmFGdFNAFAmgH1zsACgkQZcqWmFGd
+FNCnYA/9E4vnv14KYzVOtdvvdUDuLLjDaHzPPyQ+dEUtnfUX+79M+fazix5oWZ3m
+fdZxfCznKR0sQ9tV2UBVeDQMKAkxyriFJwH1LpYcMUGrf5ja/YZFK0QeF76w8G1m
+kwOvPtTuma0+rc3DXup8VQp7BgHu77YE5qsBVKg4woMyVgleNOJN14GpIoMEncXW
+ZWHxOIQIQ6pBN71JYUHM//5ajhS5SsrHL7/BHOdQKYf1YBzQCbuX9nP0uU0ldBT8
+uJq6uY8Z257d3wYDmaKRHnFmoSEbO3qzZwUpjAPfLU/u70bPIltrxij/aIPwAM/M
+FW4ly3LEOM9ln0m5dq8QozgT3U5drHa1MPgiYLEO70AwJrjMZpeW9UkyZp2R/ldu
+1dEAKbVZyoMMwBzq8AO7Eu8cCLKCuzRi8JmJs6sI523rlUEUVMtWtpz8fryWV4ki
+9lB47ba90OfXBzu86ZNYWaoGoOm9AlDKzxGxGzcDv/Zhcv7UoZy6GOpSMutRXbHp
+M0bTfajvkzI61cKGHorFURdFoRnGymeNaPGon1dpxCFQWWy2Yy0Hanh06nsWKonf
+B9P+SiUvZjrb/+aiGPwThR2LhQIJE99rII+fRuyQUuW4aBkgaQ5VykkmKajcHIxA
+6MQZ3L1w8mTpVlfM7o4Xug245G+fvph7Np8cVnUQpQiOZdnjleo=
+=8HOD
 -----END PGP SIGNATURE-----
